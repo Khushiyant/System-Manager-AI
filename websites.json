@@ -1,0 +1,16 @@
+{
+    "websites":[
+        {
+        "website_name":"youtube",
+        "URL":"https://www.youtube.com/"
+        },
+        {
+        "website_name":"google",
+        "URL":"https://www.google.co.in/"
+        },
+        {
+        "website_name":"prime",
+        "URL":"https://www.primevideo.com/"
+        }
+    ]
+}
