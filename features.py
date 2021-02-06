@@ -17,11 +17,9 @@ soundEngine.setProperty('rate',140)
 chromeURL = "C:/Program Files/Google/Chrome/Application/chrome.exe %s"
 calcVals = ['add','subtract','divide','multiply'] 
 
-with open('websites.json') as wb:
-    websites = json.load(wb)
-with open('programs.json') as pr:
-    programs = json.load(pr)
-with open('folder.json') as fl:
+with open('json/openPaths.json') as op:
+    openPath = json.load(op)
+with open('json/folder.json') as fl:
     folders = json.load(fl)
 
 class commandCenter:
@@ -56,16 +54,16 @@ class commandCenter:
 
     def openStuff(self,openCmd):
 
-        if openCmd=='youtube':
-            webbrowser.get(chromeURL).open("https://www.youtube.com/")
-        elif openCmd=='prime':
-            webbrowser.get(chromeURL).open("https://www.primevideo.com/")
-        elif openCmd=='google':
-            webbrowser.get(chromeURL).open("https://www.google.co.in/") 
-        elif openCmd=='vscode' or openCmd == 'code':
-            os.startfile("C:\\Users\\Khushiyant\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe")
-        elif openCmd=='prompt':
-            os.startfile("C:\\Windows\\system32\\cmd.exe")
+        found=False
+        for w in openPath['websites']:
+            if w['name']==openCmd:
+                 webbrowser.get(chromeURL).open(w['path'])
+                 found=True
+        if not found:
+            for p in openPath['programs']:
+                if p['name']==openCmd:
+                    os.startfile(p['path'])
+                    # found=True            
         
     def wiki(self,query):
 
@@ -84,7 +82,6 @@ class commandCenter:
                     full_path = os.path.join(semi_path,p)
                     if os.path.isfile(full_path):
                         os.remove(full_path)
-                        print(full_path)
                 
     def packages(self,cmd,pkg):
 

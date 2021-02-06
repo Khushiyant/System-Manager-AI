@@ -1,0 +1,22 @@
+{
+    "websites":[
+        {
+        "name":"youtube",
+        "path":"https://www.youtube.com/"
+        },
+        {
+        "name":"google",
+        "path":"https://www.google.co.in/"
+        },
+        {
+        "name":"prime",
+        "path":"https://www.primevideo.com/"
+        }
+    ],
+    "programs":[
+        {
+        "name":"code",
+        "path":"C:\\Users\\Khushiyant\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+        }
+    ]
+}

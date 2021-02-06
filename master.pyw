@@ -19,7 +19,7 @@ class interactiveUI:
 if __name__ == '__main__':    
     fs.wishMe("Khushiyant")
     root=Tk()
-    photo = PhotoImage(file = "D:/Projects/Python/My_Alexa/voice.png")
+    photo = PhotoImage(file = "D:/Projects/Python/My_Alexa/img/voice.png")
     screen_height=root.winfo_height()
     screen_width=root.winfo_width()
     interactiveUI(root,screen_height,screen_width,photo)
