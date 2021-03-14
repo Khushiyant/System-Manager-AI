@@ -1,22 +1,26 @@
 {
-    "websites":[
+    "websites": [
         {
-        "name":"youtube",
-        "path":"https://www.youtube.com/"
+            "name": "youtube",
+            "path": "https://www.youtube.com/"
         },
         {
-        "name":"google",
-        "path":"https://www.google.co.in/"
+            "name": "google",
+            "path": "https://www.google.co.in/"
         },
         {
-        "name":"prime",
-        "path":"https://www.primevideo.com/"
+            "name": "prime",
+            "path": "https://www.primevideo.com/"
         }
     ],
-    "programs":[
+    "programs": [
         {
-        "name":"code",
-        "path":"C:\\Users\\Khushiyant\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            "name": "code",
+            "path": "C:\\Users\\Khushiyant\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+        },
+        {
+            "name": "edge",
+            "path": "\"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\""
         }
     ]
 }

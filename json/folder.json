@@ -2,11 +2,11 @@
     "folders":[
         {
             "folder_name":"downloads",
-            "path":"C:\\Users\\Khushiyant\\Downloads"
+            "path":"C:/Users/Khushiyant/Downloads"
         },
         {
-            "folder_name":"new",
-            "path":"C:\\Users\\Khushiyant\\Desktop\\New folder\\"
+            "folder_name":"projects",
+            "path":"D:/Projects/"
         }
     ]
 }

@@ -12,10 +12,11 @@ class interactiveUI:
         try:
             query = fs.takeCommand()
             query=query.lower()
+            # print(query)
             fs.commandCenter(query)
         except AttributeError:
             pass 
-
+    
 if __name__ == '__main__':    
     fs.wishMe("Khushiyant")
     root=Tk()
