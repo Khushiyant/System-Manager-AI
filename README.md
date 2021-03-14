@@ -14,6 +14,9 @@ git clone https://github.com/Khushiyant/System-Manager-AI.git
 pip install SpeechRecognition
 pip install pyttsx3
 pip install pyaudio
+pip intall google
+pip install bs4
+pip install requests
 ```
 
 if you have problem installing pyaudio, download .whl according to your python version from [here](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio)
