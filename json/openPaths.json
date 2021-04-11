@@ -11,6 +11,10 @@
         {
             "name": "prime",
             "path": "https://www.primevideo.com/"
+        },
+        {
+            "name": "gfg",
+            "path": "https://www.geeksforgeeks.org/"
         }
     ],
     "programs": [

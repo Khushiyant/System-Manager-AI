@@ -22,7 +22,7 @@ calcVals = ['add', 'subtract', 'divide', 'multiply']
 
 with open('json/openPaths.json') as op:
     openPath = json.load(op)
-with open('json/folder.json') as fl:
+with open('json/folders.json') as fl:
     folders = json.load(fl)
 
 
@@ -33,8 +33,8 @@ class commandCenter:
         if "wikipedia" in query:
             self.wiki(query)
         elif "open" in query:
-            openCmd = list(query.split())[-1]
-            self.openStuff(openCmd)
+            query = list(query.split())[-1]
+            self.openStuff(query)
         elif any(x in query for x in calcVals):
             self.calc(query)
         elif 'exit' in query:
@@ -89,13 +89,10 @@ class commandCenter:
 
     def pathAsk(self):
 
-        root = Tk()
-        var = StringVar()
-
         def AppendPath():
-            pathType = var.get()
             name = str(Name_Entry.get()).lower()
             path = str(Path_Entry.get())
+            pathType = var.get()
             if pathType == 'websites':
                 openPath[pathType].append({"name": name, "path": path})
                 with open('json/openPaths.json', 'w') as add_website:
@@ -104,16 +101,20 @@ class commandCenter:
                 openPath[pathType].append({"name": name, "path": path})
                 with open('json/openPaths.json', 'w') as add_program:
                     json.dump(openPath, add_program, indent=4)
-            elif var.get() == 'folders':
-                folders[var.get()].append({"folder_name": name, "path": path})
+            elif pathType == 'folders':
+                folders[pathType].append({"folder_name": name, "path": path})
                 with open('json/folders.json', 'w') as add_folder:
                     json.dump(folders, add_folder, indent=4)
-            root.quit()
+            newPathAddition.quit()
 
-        root.title("Add path")
-        root.geometry('400x130')
-        radio_btn = Frame(root)
+        newPathAddition = Tk()
+
+
+        newPathAddition.title("Add path")
+        newPathAddition.geometry('400x130')
+        radio_btn = Frame(newPathAddition)
         radio_btn.pack()
+        var = StringVar()
 
         website = Radiobutton(radio_btn, text="Website",
                               variable=var, value='websites')
@@ -125,7 +126,7 @@ class commandCenter:
                              variable=var, value='folders')
         folder.pack(side=LEFT)
 
-        path = Frame(root)
+        path = Frame(newPathAddition)
         path.pack()
 
         Name = Label(path, text="Name : ")
@@ -137,16 +138,17 @@ class commandCenter:
         Path_Entry = Entry(path, width=50)
         Path_Entry.grid(row=1, column=1, pady=10)
 
-        Submit = Frame(root)
+        Submit = Frame(newPathAddition)
         Submit.pack()
+
 
         sub_btn = Button(Submit, text="Submit", command=AppendPath)
         sub_btn.pack()
 
-        root.mainloop()
+        newPathAddition.mainloop()
 
     def wiki(self, query):
-
+    
         speak("Searching Wikipedia...")
         query = query.replace('wikipedia', '')
         result = wikipedia.summary(query, sentences=2)
@@ -222,7 +224,7 @@ def wishMe(name):
         elif greetTime >= 12 and greetTime < 18:
             greetWord = 'Good Afternoon'+' '+name
         elif greetTime < 24 and greetTime >= 20:
-            greetWord = 'Have Good Sleep after talk'+' '+name
+            greetWord = 'This day must be a good day'+' '+name
         elif greetTime in [18, 19]:
             greetWord = 'Good Evening'+' '+name
     except:
